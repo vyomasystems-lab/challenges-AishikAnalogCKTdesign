@@ -1,0 +1,17 @@
+# See LICENSE.vyoma for details
+
+TOPLEVEL_LANG ?= verilog
+
+PWD=$(shell pwd)
+
+VERILOG_SOURCES = $(PWD)/buf.v            # provide your design path
+VERILOG_SOURCES = $(PWD)/BUFF.v			  # provide your design path
+
+TOPLEVEL :=buf           # design file
+TOPLEVEL :=BUFF_MUX		 # design file
+MODULE   :=Test_Bench    # test file
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+clean_all: clean
+	rm -rf *.xml sim_build __pycache__ 
